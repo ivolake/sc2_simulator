@@ -1,4 +1,5 @@
 #Тут был Макс
+#еще одно напоминание
 #SC 2 classes
 from random import randint
 
