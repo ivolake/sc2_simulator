@@ -1,3 +1,5 @@
+#Тут был Макс
+#еще одно напоминание
 #SC 2 classes
 from random import randint
 
@@ -7,7 +9,7 @@ class Ground_Units:
     def recieve_damage(self, dp):
         self.health_points -= dp
     def show_hp (self):
-        print("хп отсалось:", self.health_points)
+        print("хп осталось:", self.health_points)
     pass
 
 class marines(Ground_Units):
