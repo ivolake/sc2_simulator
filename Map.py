@@ -6,5 +6,5 @@ class Map:
 		self.lop = {0: [], 1: [], 2: [], 3: []}
 
 	def add(self, obj):
-		# Пока так
+		# Пока так, но я что-то поменял для коммита
 		self.__objects['Units'].append(obj)
