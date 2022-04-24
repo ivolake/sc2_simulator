@@ -18,11 +18,22 @@ class Player:
         """
         Проверка ника
         """
-        banlist_of_letters = ["\\", ":"]
-        if len(nick) > 15:
-            print(f"Слишком длинный ник, замена на {nick[:15]}.")
-            nick = nick[:15]
+        if set(nick) == {' '} or nick == "":
+            raise ValueError("Ник не может быть пустым.")
 
+        nick = nick.split()
+        nick = " ".join(nick) #убирает много пробелов
+
+        if len(nick) > 15:
+            if nick[14] == " ": #проверка на последний пробел в нике
+                print(f"Слишком длинный ник, замена на {nick[:14]}.")
+                nick = nick[:14]
+            else:
+                print(f"Слишком длинный ник, замена на {nick[:15]}.")
+                nick = nick[:15]
+
+        banlist_of_letters = r"\/,{}:;`~"
+        banlist_of_letters = set(banlist_of_letters)
         for letter in banlist_of_letters:
             if letter in nick:
                 raise ValueError(f"Запрещённые символы в нике: '{letter}'.")
