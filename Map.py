@@ -1,3 +1,4 @@
+# TODO: current_state карты (обращается к координатам каждого юнита)
 class Platform:
 	def __init__(self, lvl, points):
 		self.lvl = lvl

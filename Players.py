@@ -1,5 +1,6 @@
 # TODO: сделать СИСТЕМУ ПРИКАЗОВ
 #  добавить панель приказов(координаты move),
+#  перенести список комманд в docs
 # 3.1. send_unit_cmd - функция, описывающее доставку до юнита определенной команды. Оперирует объектами класса Unit и их полями current_command.
 # 3.2 send_unit_move, send_unit_attack - подвиды функции отправки команды, отправляющие конкретные команды юниту.
 
@@ -54,8 +55,63 @@ class Command:
         "ability"  # использовать способность
     ]
 
-    def __init__(self, unit_type: object):
+    def __init__(self,
+                 command_type: str,
+                 unit_type: object
+                 ):
         """
         Определяем тип юнита и его способности
         """
+        self.command_type = command_type
+        self.unit_type = unit_type
+
+    # def set_params(self):
+    #     pass
+
+    def run(self, **kwargs):
+        if self.command_type == "move":
+            return self.__move(**kwargs)
+        elif self.command_type == "":
+            pass
+        else:
+            print("try another command...")
+
+    def move(self,
+             x: int,
+             y: int
+             ):
+        #while x y юнита не= заданным, то примитив движения в нужную сторону
+        pass
+
+
+class PrimitiveCommand:
+
+    def __init__(self,
+                 command_type: str,
+                 unit_type: object
+                 ):
+        """
+        Определяем тип юнита и его способности
+        """
+        self.command_type = command_type
+        self.unit_type = unit_type
+        if command_type == "move":
+            pass
+
+    # def set_params(self):
+    #     pass
+
+    def run(self, **kwargs):
+        if self.command_type == "move":
+            return self.__move(**kwargs)
+        elif self.command_type == "":
+            pass
+        else:
+            print("try another command...")
+
+    def move(self,
+             x: int,
+             y: int
+             ):
+        # while x y юнита не= заданным, то примитив движения в нужную сторону
         pass
